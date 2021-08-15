@@ -32,6 +32,10 @@ public class User {
 		this.name = name;
 		this.address = address;
 	}
+	public User() {
+		super();
+	}
+	
 	
 	
 

@@ -4,6 +4,7 @@ import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +18,9 @@ import com.mj.librarymanagement.user.service.UserService;
 public class UserController {
 	@Autowired
 	UserService userService;
-
-	@GetMapping
-	private User getUser(@PathParam(value = "id")String id) {
+ 
+	@GetMapping("/{id}")
+	private User getUser(@PathVariable(value = "id")String id) {
 		return  userService.getUserById(Integer.valueOf(id));		
 	}
 	
